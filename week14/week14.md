@@ -123,90 +123,232 @@ public ListNode addTwoNumbers(ListNode l1, ListNode l2) {
 
 ### Share
 
-##### 《疯狂Java讲义（第2版）》 读书笔记三
+##### 《疯狂Java讲义（第2版）》 读书笔记四
 
-#### **一、多线程**
+#### **一、反射**
 
-- ###### 线程概述
+​	反射的使用时机，程序在编译时无法预知该对象的具体信息，只能在运行时发现该对象的类的真实信息
 
-  - 进程和线程
-  - 进程的特性（独立性、动态性、并发性）
-  - 线程也被称作轻量级进程。线程是进程的执行单元，线程不拥有系统资源。与该进程所拥有的的全部资源。
-  - 线程是独立运行的、抢占式的。
+- ##### 通过反射查看类信息
 
-- ###### 线程的创建与启动
+  - 获取Class对象 方式
+    - Class.forName(String clazzNae)
+    - 使用.class 例如：Person.Class
+    - 调用对象的getClass()
+  - 获取构造器（Constructor）其他类似：方法（Method）、字段（FIeld）
+    - Class.getConstructor(Class<?>.. parameterTypes)  返回public 指定的构造器
+    - Class.getDeclaredConstructor(Class<?>.. parameterTypes)  返回指定的构造器，与权限无关
+    - Class.getConstructors()  返回所有public的构造器
+    - Class.getDeclaredConstructors()  返回所有的构造器
 
-  - Java多线程实现的多种方式
+- ##### 使用反射操作对象
 
-  1. 继承Thread类创建线程
+  - 创建对象
+    - 调用Class对象的newInstance()
+    - 调用Constructor 对象的newInstance()
+  - 调用方法
+    - 使用Method对象的 invoke(Object obj,Object... args)
+  - 属性值（field.setAccessible(trur) 取消访问权限）
+    - 调用Field 对象的 getXxx(Object obj) 获取obj对象的该Field的属性值
+    - 调用Field 对象的 setXxx(Object obj) 设置obj对象的该Field的属性值
 
-     1. 重写run**方法
-     2. 使用start()启动线程。
+- ##### 动态代理和AOP（https://blog.csdn.net/fuzhongmin05/article/details/61615149）
 
-  2. 实现Runnable接口创建线程（可以共享同一线程类的实例属性）
+  ​	AOP的意思就是面向切面编程。**AOP注重的是解决许多问题的方法中的共同点，是对OO思想的一种补充！**还是拿人家经常举的一个例子讲解一下吧：比如说，我们现在要开发的一个应用里面有很多的业务方法，但是，我们现在要对这个方法的执行做全面监控,或部分监控。
 
-     1. 定义Runable接口实现类、重写run方法。
-     2. 创建Runable实现类实例，并且以此实例作为Thread的target来创建Thread对象。`new Thread(Runnable实现类的对象)`
-     3. 调用线程对象的start()方法启动该线程。
+  ```java
+  
+  public class Hello implements IHello {
+      public void sayHello(String name) {
+          System.out.println("Hello " + name);
+      }
+  }
+  ```
 
-  3. 使用Callable和Future创建线程
+  ```java
+  public class HelloProxy implements IHello {
+       private IHello hello;
+       public HelloProxy(IHello hello) {
+           this.hello = hello;
+       }
+       public void sayHello(String name) {
+          Logger.logging(Level.DEBUGE, "sayHello method start.");
+          hello.sayHello(name);
+          Logger.logging(Level.INFO, "sayHello method end!");
+       }
+  ```
 
-     特点
+  ```java
+  public class Test {
+      public static void main(String[] args) {
+          IHello hello = new HelloProxy(new Hello());
+          hello.sayHello("Doublej");
+      }
+  }
+  ```
 
-     1. 提供了call()方法可以作为线程执行体，比run()方法更强大。
-        1. 可以有返回值
-        2. 可以抛出异常
+  ```java
+  
+  public class Logger{
+      /**
+       * 根据等级记录日志
+       * @param level
+       * @param context
+       */
+      public static void logging(Level level, String context) {
+          if (level.equals(Level.INFO)) {
+              System.out.println(new Date().toLocaleString() + " " + context);
+          }
+          if (level.equals(Level.DEBUGE)) {
+              System.err.println(new Date() + " " + context);
+          }
+      }
+  
+  ```
 
-     创建线程步骤：
+  最简单的aop 增强了Hello的功能。但是我们会发现一个问题，如果我们像Hello这样的类很多，那么，我们是不是要去写很多个HelloProxy这样的类呢？在jdk1.3以后，jdk跟我们提供了一个API,即**java.lang.reflect.InvocationHandler**的类。 这个类可以让我们在JVM调用某个类的方法时动态的为些方法做些什么事
 
-     	1. 创建Callable接口的实现类，并实现call()方法，该call()方法作为线程执行体，并且有返回值。
-      	2. 创建Callable实现类的实例，使用FutureTask类包装Callable对象，该FutureTask对象封装了该Callable对象的call()方法的返回值。
-      	3. 使用FutureTask对象作为Thread对象的target创建并且启动新线程。
-      	4. 调用FutureTask对象的get()方法获得子线程执行结束后的返回值。
+  ```java
+  import java.lang.reflect.InvocationHandler;
+  import java.lang.reflect.Method;
+  import java.lang.reflect.Proxy;
+  public class DynaProxyHello implements InvocationHandler {
+      /**
+       * 要处理的对象(也就是我们要在方法的前后加上业务逻辑的对象,如例子中的Hello)
+       */
+      private Object delegate;
+      /**
+       * 动态生成方法被处理过后的对象 (写法固定)
+       * 
+       * @param delegate
+       * @param proxy
+       * @return
+       */
+      public Object bind(Object delegate) {
+          this.delegate = delegate;
+          return Proxy.newProxyInstance(
+                  this.delegate.getClass().getClassLoader(), this.delegate
+                          .getClass().getInterfaces(), this);
+      }
+      /**
+       * 要处理的对象中的每个方法会被此方法送去JVM调用,也就是说,要处理的对象的方法只能通过此方法调用
+       * 此方法是动态的,不是手动调用的
+       */
+      public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
+          Object result = null;
+          try {
+              //执行原来的方法之前记录日志
+              Logger.logging(Level.DEBUGE, method.getName() + " Method end .");
+              
+              //JVM通过这条语句执行原来的方法(反射机制)
+              result = method.invoke(this.delegate, args);
+              //执行原来的方法之后记录日志
+              Logger.logging(Level.INFO, method.getName() + " Method Start!");
+          } catch (Exception e) {
+              e.printStackTrace();
+          }
+          //返回方法返回值给调用者
+          return result;
+      }
+  }
+  
+  ```
 
- - ###### 线程的生命周期
+  ```java
+  public class Test {
+      public static void main(String[] args) {
+          IHello hello = (IHello)new DynaProxyHello().bind(new Hello());
+          hello.sayGoogBye("Double J");
+          hello.sayHello("Double J");
+      }
+  }
+  
+  ```
 
-   ​	线程的生命周期主要包括新建、就绪、阻塞、运行、死亡。下面是**线程状态的转化图**：
+  将操作者解耦
 
-   ​	![1575804771146](assets/1575804771146.png)
+  ```java
+  public class LoggerOperation implements IOperation {
+      public void end(Method method) {
+          Logger.logging(Level.DEBUGE, method.getName() + " Method end .");
+      }
+      public void start(Method method) {
+          Logger.logging(Level.INFO, method.getName() + " Method Start!");
+      }
+  }
+  
+  ```
 
-- ##### 控制线程
+  使用反射机制解耦操作者
 
-  - join()方法：让一个进程等待另一个进程的完成。
-  - sleep()方法：让当前的线程暂停一段时间，并且进入阻塞状态。
-  - yield()方法：让当前的线程暂停，不会阻塞线程，只是进入就绪状态，让线程调度器重新调度一次。
-  - 线程优先级：线程的优先级1-10,数值越大优先级越高。可以使用setPriority()设置优先级。
+  ```java
+  
+  import java.lang.reflect.InvocationHandler;
+  import java.lang.reflect.Method;
+  import java.lang.reflect.Proxy;
+  public class DynaProxyHello implements InvocationHandler {
+      /**
+       * 操作者
+       */
+      private Object proxy;
+      /**
+       * 要处理的对象(也就是我们要在方法的前后加上业务逻辑的对象,如例子中的Hello)
+       */
+      private Object delegate;
+   
+   
+      /**
+       * 动态生成方法被处理过后的对象 (写法固定)
+       * 
+       * @param delegate
+       * @param proxy
+       * @return
+       */
+      public Object bind(Object delegate,Object proxy) {
+         
+          this.proxy = proxy;
+          this.delegate = delegate;
+          return Proxy.newProxyInstance(
+                  this.delegate.getClass().getClassLoader(), this.delegate
+                          .getClass().getInterfaces(), this);
+      }
+      /**
+       * 要处理的对象中的每个方法会被此方法送去JVM调用,也就是说,要处理的对象的方法只能通过此方法调用
+       * 此方法是动态的,不是手动调用的
+      */
+      public Object invoke(Object proxy, Method method, Object[] args) throws Throwable {
+          Object result = null;
+          try {
+          //反射得到操作者的实例
+              Class clazz = this.proxy.getClass();
+              //反射得到操作者的Start方法
+              Method start = clazz.getDeclaredMethod("start",new Class[] { Method.class });
+              //反射执行start方法
+              start.invoke(this.proxy, new Object[] { method });
+              //执行要处理对象的原本方法
+              result = method.invoke(this.delegate, args);
+              //反射得到操作者的end方法
+              Method end = clazz.getDeclaredMethod("end",new Class[] { Method.class });
+              //反射执行end方法
+              end.invoke(this.proxy, new Object[] { method });
+          } catch (Exception e) {
+              e.printStackTrace();
+          }
+          return result;
+      }
+  }
+  ```
 
-- ##### 线程同步
-
-  线程调度具有随机性，多线程访问同一个数据，容易出现线程安全问题。
-
-  - **使用 synchronized 关键字**（可以修饰方法、代码块，不能修饰构造器、属性等）
-    - 同步代码块
-    - 同步方法
-  - 使用同步锁Lock()方法（使用ReentrantLock对象实例在方法体中的开始lock.lock锁定，方法体执行结束lock.unlock()解锁）
-
-- ##### 线程通信（需要使用同步监视器，需要使用synchronized修饰。可以是同步代码块或者同步方法。如果使用Lock对象，则需要使用Condition控制线程通信。）
-
-  - wait() :使当前线程等待，直到其他线程调用该同步监视器的notify()或者notifyAll()方法唤醒该线程。
-  - notify()：唤醒等待单个线程，如果有多个，随机选择其中一个。
-  - notifyAll()：方法唤醒等待所有线程。
-
-- ##### 线程池
-
-  系统启动一个新线程的成本比较高，为了提高性能，使用线程池可以很好提高性能。对于多cpu，使用**ForkJoinPool**将一个任务分解成多个小任务并行计算，将多个小任务的结果合并成总的计算结果。
-
-  使用线程池执行线程任务的步骤
-
-  1. 调用Executors类的静态工厂方法创建ExecutorService对象，该对象代表线程池。
-
-  2. 创建Runnable实现类或Callable的类实例作为线程执行体。
-
-  3. 调用ExecutorService对象的submit() 方法提交Runnable实现类或Callable的类实例
-
-  4. 使用ExecutorService对象的shutdown()方法关闭线程池。
-
-     
+  ```java
+  public class Test {
+      public static void main(String[] args) {
+          IHello hello = (IHello)new DynaProxyHello().bind(new Hello(),new LoggerOperation());
+          hello.sayGoogBye("Double J");
+          hello.sayHello("Double J");
+          
+      }
+  }
+  
+  ```
 
   
-
