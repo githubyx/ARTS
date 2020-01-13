@@ -1,0 +1,18 @@
+ 
+/*****概览页面header begin*****/
+.top{ margin: auto; width: 1200px; height: 50px; }
+.top_warp{ float: left; line-height: 40px; }
+.top_warp a{ font-family: "Microsoft Yahei"; color: #4D4D4D; display: inline-block; padding:0 10px;} 
+
+
+/*****套红概览页面header begin*****/
+.top_warp_th { float: left; line-height: 40px; }
+.top_warp_th a{ font-family: "Microsoft Yahei"; color: #eea15b; display: inline-block; padding:0 10px;} 
+
+
+/********页面头部全文检索**********/
+.search{float: right; height: 28px; border: 1px solid #e9e0d4; margin-top: 10px; }
+.search .search_key { float: left; background: #fbfdfe; width: 180px; height: 28px; line-height: 28px; border: 0px; color: #000000; text-indent: 10px; }
+.search .but_search { float: left; background: url(search.png) no-repeat center center; width: 41px; height: 28px; line-height: 28px; border: 0px; cursor: pointer;  }
+
+ 

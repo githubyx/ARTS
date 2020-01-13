@@ -1,0 +1,21 @@
+ 
+.other_header{ margin: auto; background: #ffffff; }
+.header_warp{ width: 1200px; margin:0 auto; margin-top: 20px; }
+.header_warp .logo{ text-align:center; }
+
+
+/*********套红样式**********/
+.header_warp_th{ width: 1200px; margin:0 auto; margin-top: 15px; }
+.header_warp_th .logo{ text-align:center; }
+
+
+
+.nav_bg { margin:0 auto; background: #064ec0; border-bottom: 5px solid #d6181f; margin-top: 30px; height: 48px; }
+
+.nav_bg nav { margin: auto; width: 1200px; font-weight: bold; height: 48px; text-align: center; }
+.nav_bg nav span { margin: 0; text-align: center; display: inline-block; margin: 0px 19px; height: 48px; }
+.nav_bg nav span img { margin-top: 12px; }
+.nav_bg nav span.first{ padding-left:0; background: url(nav_sjkbg.png) no-repeat center top; width: 396px; height: 50px; margin-left:0px;}
+.nav_bg nav a{ color:#fff;}
+.nav_bg nav a:hover{ color:#CCC;}
+.nav_bg nav a.on{ color:#f9c048;}

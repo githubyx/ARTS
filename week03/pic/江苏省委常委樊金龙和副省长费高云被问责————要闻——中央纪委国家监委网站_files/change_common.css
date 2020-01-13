@@ -1,0 +1,8 @@
+/*****首页小于1200调用****/
+.min_body{ width: 1200px; }
+
+.min_body .header_warp{ width: 1200px; }
+.min_body .nav_bg{ width: 1200px; }
+.min_body .nav_bg nav { width: 1200px; }
+  
+ 

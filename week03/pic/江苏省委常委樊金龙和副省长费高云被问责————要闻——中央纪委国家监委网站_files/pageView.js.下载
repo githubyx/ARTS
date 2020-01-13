@@ -1,0 +1,169 @@
+function createPageHTML(_nPageCount, _nCurrIndex, _sPageName, _sPageExt) {
+	
+	var nCurrIndex = _nCurrIndex || 0;
+	
+	
+	if(nCurrIndex == 0) {
+		document.write('<a class="first" title="首页">首 页</a>');
+	} else {
+		document.write('<a class="first" title="首页" href="'+_sPageName+'.'+_sPageExt+'">首 页</a>');
+	}
+	
+	
+	if(nCurrIndex == 0) {
+		document.write('<a class="prev" title="上一页"></a>');
+	} else {
+		if(nCurrIndex - 1 == 0) {
+			document.write('<a class="prev" title="上一页" href="'+_sPageName+'.'+_sPageExt+'"></a>');
+		} else {
+			document.write('<a class="prev" title="上一页" href="'+_sPageName+'_'+(nCurrIndex-1)+'.'+_sPageExt+'"></a>');
+		}
+	}
+	
+	
+	var j = 0;
+	for(var i=parseInt(nCurrIndex/7)*7; i<_nPageCount; i++){
+		if(j < 7) {
+			if(nCurrIndex == i) {
+				if(i % 7 == 0 && i != 0) {
+					document.write('<a href="'+_sPageName+'_'+(nCurrIndex-1)+'.'+_sPageExt+'">'+(nCurrIndex)+'</a>');
+				}
+				document.write('<a class="on">'+(nCurrIndex+1)+'</a>');
+				if((i + 1) % 7 == 0 && _nPageCount > (nCurrIndex+1)) {
+					document.write('<a href="'+_sPageName+'_'+(nCurrIndex+1)+'.'+_sPageExt+'">'+(nCurrIndex+1+1)+'</a>');
+				}
+			} else {
+				if(i == 0) {
+					document.write('<a href="'+_sPageName+'.'+_sPageExt+'">'+(parseInt(nCurrIndex/7)*7+j+1)+'</a>');
+				} else {
+					document.write('<a href="'+_sPageName+'_'+(parseInt(nCurrIndex/7)*7+j)+'.'+_sPageExt+'">'+(parseInt(nCurrIndex/7)*7+j+1)+'</a>');
+				}
+			}
+		}
+		j = j+1;
+	}
+	
+	
+	if(_nPageCount-1==nCurrIndex) {
+		document.write('<a class="next" title="下一页"></a>');
+		document.write('<a class="first" title="末页">末 页</a>');
+	} else {
+		document.write('<a class="next" title="下一页" href="'+_sPageName+'_'+(nCurrIndex+1)+'.'+_sPageExt+'"></a>');
+		document.write('<a class="first" title="末页" href="'+_sPageName+'_'+(_nPageCount-1)+'.'+_sPageExt+'">末 页</a>');
+	}
+	document.write('<em class="e">跳转至</em><span class="txtnum"><input type="text" value="'+(nCurrIndex+1)+'" name="pageValue" id="pageValue" /> </span><a class="go" title="GO" onclick="gopage('+_nPageCount+', \''+_sPageName+'\', \''+_sPageExt+'\')"></a>');
+	document.write('<span class="cor01">'+(nCurrIndex+1)+'/'+_nPageCount+'</span>');
+}
+
+
+
+function createPageHTML_ZW(_nPageCount, _nCurrIndex, _sPageName, _sPageExt) {
+	
+	if(_nPageCount != 1) {
+		
+		var nCurrIndex = _nCurrIndex || 0;
+		
+		if(nCurrIndex == 0) {
+			document.write('<a class="prev" title="上一页"></a>');
+		} else {
+			if(nCurrIndex - 1 == 0) {
+				document.write('<a class="prev" title="上一页" href="'+_sPageName+'.'+_sPageExt+'"></a>');
+			} else {
+				document.write('<a class="prev" title="上一页" href="'+_sPageName+'_'+(nCurrIndex-1)+'.'+_sPageExt+'"></a>');
+			}
+		}
+		
+		
+		var j = 0;
+		for(var i=parseInt(nCurrIndex/7)*7; i<_nPageCount; i++){
+			if(j < 7) {
+				if(nCurrIndex == i) {
+					document.write('<a class="on">'+(nCurrIndex+1)+'</a>');
+				} else {
+					if(i == 0) {
+						document.write('<a href="'+_sPageName+'.'+_sPageExt+'">'+(parseInt(nCurrIndex/7)*7+j+1)+'</a>');
+					} else {
+						document.write('<a href="'+_sPageName+'_'+(parseInt(nCurrIndex/7)*7+j)+'.'+_sPageExt+'">'+(parseInt(nCurrIndex/7)*7+j+1)+'</a>');
+					}
+				}
+			}
+			j = j+1;
+		}
+		
+		
+		if(_nPageCount-1==nCurrIndex) {
+			document.write('<a class="next" title="下一页"></a>');
+			document.write('<a class="first" title="末页">末页</a>');
+		} else {
+			document.write('<a class="next" title="下一页" href="'+_sPageName+'_'+(nCurrIndex+1)+'.'+_sPageExt+'"></a>');
+			document.write('<a class="first" title="末页" href="'+_sPageName+'_'+(_nPageCount-1)+'.'+_sPageExt+'">末页</a>');
+		}
+		
+		document.write('<em class="e">跳转至</em><span class="txtnum"><input type="text" value="'+(nCurrIndex+1)+'" name="pageValue" id="pageValue" /> </span><a class="go" title="GO" onclick="gopage('+_nPageCount+', \''+_sPageName+'\', \''+_sPageExt+'\')"></a>');
+		document.write('<span class="cor01">'+(nCurrIndex+1)+'/'+_nPageCount+'</span>');
+	}
+}
+
+//判断是否是整数
+function is_int(field) {
+var Ret = true;
+var NumStr = "0123456789";
+var chr;
+for(i = 0; i < field.length; ++i) {
+chr = field.charAt(i);
+if(NumStr.indexOf(chr,0) == -1) {
+Ret = false;
+}
+}
+if(Number(field) > 2147483647) {
+Ret = false;
+}
+return(Ret);
+}
+
+//Trim函数去掉一字符串两边的空格
+function Trim(his) {
+//找到字符串开始位置
+Pos_Start = -1;
+for(var i = 0; i < his.length; i++) {
+if(his.charAt(i) != " ") {
+Pos_Start = i;
+break;
+}
+}
+//找到字符串结束位置
+Pos_End = -1;
+for(var i = his.length - 1; i >= 0; i--) {
+if(his.charAt(i) != " ") {
+Pos_End = i;
+break;
+}
+}
+//返回的字符串
+Str_Return = ""
+if(Pos_Start!=-1 && Pos_End != -1) {
+for(var i = Pos_Start; i <= Pos_End; i++) {
+Str_Return = Str_Return + his.charAt(i);
+}
+}
+return Str_Return;
+}
+
+function gopage(page_count, PAGE_NAME, PAGE_EXT) {
+	var pageValue = document.getElementById('pageValue').value;
+	if(Trim(pageValue) == '') {
+		alert('请输入跳转页数！');
+		document.getElementById('pageValue').focus();
+		return false;
+	} else if(!is_int(Trim(pageValue))) {
+		alert('请输入正整数!');
+		document.getElementById('pageValue').focus();
+		return false;
+	} else if(parseInt(Trim(pageValue) - page_count) <= 0) {
+		if(Trim(pageValue) == 1) {
+			window.location.href = PAGE_NAME + '.' + PAGE_EXT;
+		} else {
+			window.location.href = PAGE_NAME + '_' + (pageValue - 1) + '.' + PAGE_EXT;
+		}
+	}
+}

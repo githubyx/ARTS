@@ -1,0 +1,48 @@
+/*----------footer---------*/
+.in_footer{ margin: auto; background: #FBF7F0; padding-bottom: 30px; min-height: 70px;}
+
+  
+/*----------直属机关网站群---------*/
+.zsjgwzq { margin: auto; width: 100%; text-align: center; padding-top: 30px;}
+.zsjgwzq img { margin: 0 20px; }
+
+
+/*----------网址导航---------*/
+.wzdh { margin: auto; width: 1200px; margin-top: 30px; border-bottom: 1px solid #e8dfd2; }
+
+.tab_list { display: none;}
+.show { display: block;}
+
+.widget2 { position: relative; margin-top: 10px;} 
+.widget2 .tit { border-bottom: 3px solid #A30000; text-align: left; padding-bottom: 8px; margin-bottom: 10px; }
+
+
+.chanllist2 { margin: 0 0 10px 0; font-size: 15px;}
+.chanllist2 li { float:left; padding-right: 30px; margin-right: 50px; font-size: 15px; color: #29101B; height:24px; text-align: left; cursor: pointer;}
+.chanllist2 li a { display:block; color: #545454; height:24px; }
+.chanllist2 li.on { color: #29101B; background: url(wzdh_arrow.png) no-repeat right center; }
+.chanllist2 li.on a{ color: #29101B; }
+
+
+.link_list { position: relative; height: 220px; margin-top: 20px;  }
+
+.news_link { width: 100%; margin-top: 10px;}
+.news_link a { float: left; font-size: 16px; color:#555; line-height: 35px; white-space: nowrap; display: block;}
+.news_link a:hover { color:#941e23; }
+.news_link .letter1{ width: 200px; }
+.news_link .letter2{ width: 170px; }
+.news_link .letter3{ width: 70px; }
+.news_link .letter5{ width: 295px; }
+.news_link .letter6{ width: 110px; }
+
+.more2 { position: absolute; bottom: 10px; left: 0px; text-align: left; font-size: 16px; color:#555; }
+
+
+.footer_warp{ margin: auto; width: 1200px; height: 110px; position: relative; text-align: center; }
+ 
+.footer_warp a { color: #555971; display: inline-block;}
+.footer_warp a:hover { text-decoration: underline;}
+.footer_warp .renzheng { position: absolute; top: 30px; left: 30px; }
+.footer_warp .foot_con { margin: auto; padding-right: 80px; padding-top: 60px; text-align: center; color: #555971;}
+.footer_warp .foot_ewm { position: absolute; top: 30px; right: 30px; }
+.footer_warp span{ margin-right: 10px; }

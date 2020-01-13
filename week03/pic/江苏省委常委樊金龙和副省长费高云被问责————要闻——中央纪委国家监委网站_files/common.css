@@ -1,0 +1,160 @@
+.other_bg{ background: #fdfbf8; }
+
+.main{ width: 1200px; margin: auto; background: #ffffff; padding: 30px 0px; }
+
+ 
+
+/*****二级页面 - 专题logo*******/
+.list_logo{ margin: auto; width: 1099px; margin-top: 30px; margin-bottom: 30px; text-align: center; padding-bottom: 40px; border-bottom: 2px solid #aaaaaa; }
+
+
+
+/*****二级页面 - 领导活动*******/
+.link_list_2 { margin: auto; height: 30px; margin: 20px 50px 0px; }
+.link_list_2 ul { margin: auto; height: 30px; }
+.link_list_2 ul li { float: left; height: 30px; line-height: 30px; font-size: 18px; font-weight: bold; color: #af090b; padding-right: 10px; }
+.link_list_2 ul li a{ color: #af090b; }
+.link_list_2 ul li a:hover { color: #941e23;}
+
+
+ 
+/*****二级页面 - 信息公开*******/
+.link_list_3 { margin: auto; padding: 20px 0px; }
+.link_list_3 ul { margin: auto; }
+.link_list_3 ul li { float: left; background: url(xxgk_listbg.png) no-repeat right center; width: 337px; height: 146px; line-height: 146px; margin: 20px 0px 20px 45px;}
+.link_list_3 ul li .con{ margin: auto; width: 280px; height: 24px; line-height: 24px; font-size: 24px; color: #2c2c2c; margin-top: 55px; text-align: center; }
+.link_list_3 ul li .con img{ margin-left: 10px; }
+
+
+
+/*****二级页面 - 头条头图*******/ 
+.link_list_4 { margin: auto; margin-left: 50px;  }
+.link_list_4 li { float: left; width: 375px; height: 385px; border-bottom: 1px solid #e8dfd2; margin-top: 50px; }
+.link_list_4 li dl { margin: auto; width: 375px; height: 345px; }
+.link_list_4 li dl dt { margin: auto; width: 340px; height: 260px; }
+.link_list_4 li dl dd { margin: auto; width: 340px; font-size: 18px; color: #2c2c2c; line-height: 35px; margin-top: 10px; }
+.link_list_4 li dl dd a { color: #2c2c2c; }
+.link_list_4 li dl dd a:hover { color: #941e23;}
+
+
+/*****二级页面 - 头条头图*******/ 
+.link_list_5 { margin: auto; margin-left: 50px;  }
+.link_list_5 li { float: left; width: 375px; height: 145px; border-bottom: 1px solid #e8dfd2; margin-top: 50px; }
+.link_list_5 li img { margin: auto; width: 340px; height: 97px; }
+
+
+
+/*****二级页面 - 通用概览 - 文字类*******/
+.list_news_dl { margin: 20px 50px; }
+.list_news_dl li{ margin: auto; position: relative; font-size: 20px; line-height: 50px; height: 50px; text-align: left; border-bottom: 1px solid #e8dfd2;  }
+.list_news_dl li a {float:left; color: #2c2c2c; }
+.list_news_dl li a:hover { color: #941e23;}
+.list_news_dl li a i { position: absolute; width: 4px; height: 4px; background:url(icon_dot_small.png) no-repeat; top: 17px; left: 0px;}
+.list_news_dl li span { color:#666666; font-size: 20px; float: right; font-family: "Arial","黑体"; }
+
+
+
+/*****二级页面 - 概览 - 视频*******/
+.list_news {  margin: auto; margin: 20px 50px; }
+.list_news li { margin: auto; text-align: left; border-bottom: 1px solid #e8dfd2; padding: 30px 0px; min-height: 260px; }
+.list_news li .title { margin: auto; font-size: 24px; line-height: 50px; height: 50px; text-align: left; }
+.list_news li .con_box {margin: auto; }
+.list_news li .con_box dl { float: left; position: relative; width: 810px; margin-top: 20px; border-right: 1px solid #e8dfd2;  }
+.list_news li .con_box dl dt { position: absolute; width: 291px; height: 156px; left: 0px; top: 0px;  }
+.list_news li .con_box dl dd { margin: auto; height: 156px; padding-left: 320px; padding-right: 30px; font-size: 18px; color: #5a5a5a; }
+.list_news li .con_box dl dd .tit_1 { margin: auto; }
+.list_news li .con_box dl dd .abs { margin: auto; margin-top: 20px; line-height: 30px; }
+.list_news li .con_box a { color: #5a5a5a; }
+.list_news li .con_box a:hover { color: #941e23; }
+.list_news li .con_box .jbjs { float: right; width: 250px; margin-top: 20px; }
+.list_news li .con_box .jbjs .tit_2 { margin: auto; line-height: 30px; font-size: 18px; color: #053062; }
+.list_news li .con_box .jbjs .con { margin: auto; line-height: 30px; margin-top: 10px; font-size: 18px; color: #053062;} 
+
+
+
+
+/*****二级页面 - 概览 - 视频2*******/
+.list_news_2 { margin: 20px 50px; }
+.list_news_2 li { margin: auto; position: relative; text-align: left; border-bottom: 1px solid #e8dfd2; height: 260px; margin-top: 20px; }
+.list_news_2 li .title { margin: auto; font-size: 24px; line-height: 50px; height: 50px; text-align: left; }
+.list_news_2 li dl { margin: auto; position: relative; height: 156px; margin-top: 20px;}
+.list_news_2 li dl dt { position: absolute; width: 291px; height: 156px; left: 0px; top: 0px;  }
+.list_news_2 li dl dd { margin: auto; position: relative; height: 156px; padding-left: 320px; font-size: 18px; color: #5a5a5a; }
+.list_news_2 li dl dd .tit_1 { margin: auto; }
+.list_news_2 li dl dd .abs { margin: auto; margin-top: 13px; line-height: 30px; }
+.list_news_2 li dl dd .tuji { float: left; background: #0457a5; width: 63px; height: 28px; line-height: 28px; font-size: 14px; color: #ffffff; text-align: center; margin-top: 5px; cursor: pointer; }
+.list_news_2 li a { color: #5a5a5a; }
+.list_news_2 li a:hover { color: #941e23; }
+
+/*****二级页面 - 概览 - 视频专题*******/
+.spzt { margin: auto; margin: 20px 50px; }
+.spzt .spzt_left { float: left; width: 366px; height: 1175px; margin-top: 12px;}
+.spzt .spzt_right { float: right; width: 720px; height: 1190px; overflow-y: auto; }
+.iframe_style{ float: right; width: 720px; min-height: 1190px; }
+
+.list_news_3 { float: right; width: 900px; }
+.list_news_3 .list_logo { margin: auto; text-align: left; font-size: 24px; color: #af090b;  }
+
+
+
+/*****二级页面 - 概览 - 个人简历*******/
+.center_1 { margin: auto; }
+
+.other_left { float: left; width: 260px; margin-top: 20px; margin-left: 50px; }
+.img_show { margin: auto; width: 260px; text-align: center; }
+.img_show img { width: 146px; height: 205px; }
+.img_show div { margin: auto; margin-top: 10px;}
+.img_show div em { font-weight:bold; font-size: 24px; color: #2c2c2c;}
+
+
+.grjj { margin: auto; margin-top: 20px; font-size: 18px; color: #2c2c2c; line-height: 30px; }
+.grjj .more3 { margin: auto; height: 30px; margin-top: 10px; }
+.grjj .more3 a { float: right; font-size: 18px; color: #053062; }
+.grjj .more3 a:hover { color: #941e23; }
+
+
+/*******领导机构——领导重要活动列表*******/
+.zyhd_list { float: right; width: 810px; margin-top: 15px; margin-right: 50px; } 
+.zyhd_list .tith2{ font-size: 24px; font-weight: bolder; color: #A30000; height: 35px; text-align: left; }
+
+
+/*****二级页面 - 通用概览 - 文字类*******/
+.list_news_4 { margin: auto; margin: 10px 0px; }
+.list_news_4 li{ margin: auto; position: relative; font-size: 20px; line-height: 50px; height: 50px; text-align: left; border-bottom: 1px solid #e8dfd2;  }
+.list_news_4 li a { float:left; color: #54576C; }
+.list_news_4 li a:hover { color: #941e23;}
+.list_news_4 li a i { position: absolute; width: 4px; height: 4px; background:url(icon_dot_small.png) no-repeat; top: 17px; left: 0px;}
+.list_news_4 li span {float: right;  color:#555656; font-size: 20px; font-family: "Arial","黑体"; }
+
+
+.title_1 { margin: auto; margin: 20px 50px; }
+.title_1 .logo { float: left; font-size: 24px; color: #2c2c2c; font-weight: bold; height: 50px; line-height: 50px; }
+.title_1 .tit_bg { margin: auto; background: url(scdc_titbg.png) repeat-x center center; margin-left: 120px; height: 50px; }
+
+
+.title_2 { margin: auto; margin: 20px 50px; }
+.title_2 .logo { float: left; font-size: 24px; color: #2c2c2c; font-weight: bold; height: 30px; line-height: 50px; }
+.title_2 .tit_bg { margin: auto; background: url(scdc_titbg.png) repeat-x center center; margin-left: 505px; height: 50px; }
+
+
+.title_3 { margin: auto; margin: 30px 50px; height: 30px; }
+.title_3 .logo { float: left; font-size: 20px; color: #af090b; font-weight: bold; height: 30px; line-height: 30px; border-left: 12px solid #af090b; padding-left: 10px; }
+.title_3 .more { float: left; background: url(more.png) no-repeat center center; width: 12px; height: 30px; margin-left: 15px; }
+ 
+
+
+/*****通用细览*******/
+.Article_61{ margin: auto; margin: 20px 50px; }
+.Article_61 .tit{ font-size: 26px; color:#1f5781; font-weight:bold; text-align:center; line-height: 45px; }
+.Article_61 .daty{ padding-top: 20px; padding-bottom: 10px; border-bottom: 1px solid #ddd; text-align:center; font-size:14px; }
+.Article_61 .daty .daty_con{ margin: auto; text-align:center; padding-right: 120px;}
+
+.Article_61 .daty .daty_con .e { color:#78797; text-align: left; font-size:14px;}
+.Article_61 .daty .daty_con .e1 { margin-left: 0px; }
+.Article_61 .daty .daty_con .e2 { margin-left: 30px; }
+.Article_61 .daty .daty_con .e3 { margin-left: 30px; }
+.Article_61 .daty .daty_con .share_box{ position: relative; display: inline; height: 35px; }
+ 
+ 
+.Article_61 .content{padding:20px; line-height:1.8; font-size: 16px; text-align: left;}
+.Article_61 .content p{ padding-bottom:5px;}

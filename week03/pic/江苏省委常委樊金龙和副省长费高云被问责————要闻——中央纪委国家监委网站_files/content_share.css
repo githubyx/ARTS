@@ -1,0 +1,42 @@
+/*正文主体*/
+.e .slideDown{position:absolute; left:0px; top:-10px; width:120px; display:inline-block;*display:inline; zoom:1; vertical-align:middle; }
+.e .slideDown .share{color:#333;cursor:pointer;display:block;font-size:14px; padding: 11px 0px; text-align: center}
+.e .slideDown .share b{border:solid 5px #fff;border-top-color:#757575;display:block;height:0;overflow:hidden;position:absolute;right: 30px;top: 18px;
+-webkit-transition:top 1s,all 0.3s ease-in 0s;
+-moz-transition:top 1s,all 0.3s ease-in 0s;
+-o-transition:top 1s,all 0.3s ease-in 0s;
+transition:top 1s,all 0.3s ease-in 0s;
+}
+.e .slideDown .selectBox{background:#fff; display:none; position:absolute; left:0px; top:40px; z-index:999; width:120px; }
+.e .slideDown .selectBox a{background-image:none;border-top:1px solid #fff;border-bottom:none;color:#848484;display:block; font:12px/39px "Arial";height:39px;padding-left:45px;overflow:hidden;}
+.e .slideDown .selectBox a:hover{ color:#535353; text-decoration:none}
+.e .slideDown .selectBox a.ico01{ background:url(share_ico.png) no-repeat 12px -1px}
+.e .slideDown .selectBox a.ico02{ background:url(share_ico.png) no-repeat 12px -39px}
+.e .slideDown .selectBox a.ico03{ background:url(share_ico.png) no-repeat 12px -79px}
+.e .slideDown .selectBox a.ico04{ background:url(share_ico.png) no-repeat 12px -119px}
+.e .slideDown .selectBox a.ico05{ background:url(share_ico.png) no-repeat 12px -158px}
+
+.e .slideDown .selectBox a.ico06{ background:url(share_ico2.png) no-repeat 12px 6px}
+.e .slideDown .selectBox a.ico07{ background:url(share_ico2.png) no-repeat 12px -34px}
+.e .slideDown .selectBox a.ico08{ background:url(share_ico2.png) no-repeat 12px -74px}
+.e .slideDown .selectBox a.ico09{ background:url(share_ico2.png) no-repeat 12px -114px}
+.e .slideDown .selectBox a.ico10{ background:url(share_ico2.png) no-repeat 12px -155px}
+.e .slideDown .selectBox a.ico01:hover{ background:url(share_ico_hover.png) no-repeat 12px -1px}
+.e .slideDown .selectBox a.ico02:hover{ background:url(share_ico_hover.png) no-repeat 12px -39px}
+.e .slideDown .selectBox a.ico03:hover{ background:url(share_ico_hover.png) no-repeat 12px -79px}
+.e .slideDown .selectBox a.ico04:hover{ background:url(share_ico_hover.png) no-repeat 12px -119px}
+.e .slideDown .selectBox a.ico05:hover{ background:url(share_ico_hover.png) no-repeat 12px -159px}
+.e .slideDown .selectBox a.ico06:hover{ background:url(share_ico_hover2.png) no-repeat 12px 6px}
+.e .slideDown .selectBox a.ico07:hover{ background:url(share_ico_hover2.png) no-repeat 12px -34px}
+.e .slideDown .selectBox a.ico08:hover{ background:url(share_ico_hover2.png) no-repeat 12px -74px}
+.e .slideDown .selectBox a.ico09:hover{ background:url(share_ico_hover2.png) no-repeat 12px -114px}
+.e .slideDown .selectBox a.ico10:hover{ background:url(share_ico_hover2.png) no-repeat 12px -155px}
+
+.e .slideCur{box-shadow:0 0 2px 2px #eaeaea; display:block; border:1px solid #eaeaea}
+.e .slideCur .share{ background-color:#f5f5f5;}
+.e .slideCur .share b{border:solid 5px #f5f5f5;border-top-color:#1e63b0;top: 12px;border-top-color:#f5f5f5\9;border-bottom:solid 6px #1e63b0\9;
+-webkit-transform:rotate(180deg);
+-moz-transform:rotate(180deg);
+-o-transform:rotate(180deg);
+transform:rotate(180deg);
+}

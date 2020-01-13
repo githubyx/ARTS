@@ -1,0 +1,170 @@
+
+$(document).ready(function() {
+	//我要分享下拉菜单 
+$(".slideDown").hover(function(){
+		$(this).addClass("slideCur");
+		$(this).stop().animate({height:"240px"},"slow");
+		$(this).find(".selectBox").show();
+	},function(){
+		$(this).stop().css({height:"43px"});
+		$(this).find(".selectBox").hide();
+		$(this).removeClass("slideCur")
+	
+});
+$(".slideDown .selectBox a.ico01").mouseenter(function(){
+		$(this).css({backgroundPosition:"-37px -1px",paddingLeft:"120px"});
+		$(this).animate({backgroundPosition:"12px -1px",paddingLeft:"45px"},"normal");
+	});
+$(".slideDown .selectBox a.ico01").mouseleave(function(){
+		$(this).stop().css({backgroundPosition:"12px -1px",paddingLeft:"45px"});
+});
+$(".slideDown .selectBox a.ico02").mouseenter(function(){
+		$(this).css({backgroundPosition:"-37px -39px",paddingLeft:"120px"});
+		$(this).animate({backgroundPosition:"12px -39px",paddingLeft:"45px"},"normal");
+	});
+$(".slideDown .selectBox a.ico02").mouseleave(function(){
+		$(this).stop().css({backgroundPosition:"12px -39px",paddingLeft:"45px"});
+});
+$(".slideDown .selectBox a.ico03").mouseenter(function(){
+		$(this).css({backgroundPosition:"-37px -79px",paddingLeft:"120px"});
+		$(this).animate({backgroundPosition:"12px -79px",paddingLeft:"45px"},"normal");
+	});
+$(".slideDown .selectBox a.ico03").mouseleave(function(){
+		$(this).stop().css({backgroundPosition:"12px -79px",paddingLeft:"45px"});
+});
+$(".slideDown .selectBox a.ico04").mouseenter(function(){
+		$(this).css({backgroundPosition:"-37px -119px",paddingLeft:"120px"});
+		$(this).animate({backgroundPosition:"12px -119px",paddingLeft:"45px"},"normal");
+	});
+$(".slideDown .selectBox a.ico04").mouseleave(function(){
+		$(this).stop().css({backgroundPosition:"12px -119px",paddingLeft:"45px"});
+});
+$(".slideDown .selectBox a.ico05").mouseenter(function(){
+		$(this).css({backgroundPosition:"-37px -159px",paddingLeft:"120px"});
+		$(this).animate({backgroundPosition:"12px -159px",paddingLeft:"45px"},"normal");
+	});
+$(".slideDown .selectBox a.ico05").mouseleave(function(){
+		$(this).stop().css({backgroundPosition:"12px -159px",paddingLeft:"45px"});
+});
+$(".slideDown .selectBox a.ico06").mouseenter(function(){
+		$(this).css({backgroundPosition:"-37px 6px",paddingLeft:"120px"});
+		$(this).animate({backgroundPosition:"12px 6px",paddingLeft:"45px"},"normal");
+	});
+$(".slideDown .selectBox a.ico06").mouseleave(function(){
+		$(this).stop().css({backgroundPosition:"12px 6px",paddingLeft:"45px"});
+});
+$(".slideDown .selectBox a.ico07").mouseenter(function(){
+		$(this).css({backgroundPosition:"-37px -34px",paddingLeft:"120px"});
+		$(this).animate({backgroundPosition:"12px -34px",paddingLeft:"45px"},"normal");
+	});
+$(".slideDown .selectBox a.ico07").mouseleave(function(){
+		$(this).stop().css({backgroundPosition:"12px -34px",paddingLeft:"45px"});
+});
+$(".slideDown .selectBox a.ico08").mouseenter(function(){
+		$(this).css({backgroundPosition:"-37px -74px",paddingLeft:"120px"});
+		$(this).animate({backgroundPosition:"12px -74px",paddingLeft:"45px"},"normal");
+	});
+$(".slideDown .selectBox a.ico08").mouseleave(function(){
+		$(this).stop().css({backgroundPosition:"12px -74px",paddingLeft:"45px"});
+});
+$(".slideDown .selectBox a.ico09").mouseenter(function(){
+		$(this).css({backgroundPosition:"-37px -114px",paddingLeft:"120px"});
+		$(this).animate({backgroundPosition:"12px -114px",paddingLeft:"45px"},"normal");
+	});
+$(".slideDown .selectBox a.ico09").mouseleave(function(){
+		$(this).stop().css({backgroundPosition:"12px -114px",paddingLeft:"45px"});
+});
+$(".slideDown .selectBox a.ico10").mouseenter(function(){
+		$(this).css({backgroundPosition:"-37px -155px",paddingLeft:"120px"});
+		$(this).animate({backgroundPosition:"12px -155px",paddingLeft:"45px"},"normal");
+	});
+$(".slideDown .selectBox a.ico10").mouseleave(function(){
+		$(this).stop().css({backgroundPosition:"12px -155px",paddingLeft:"45px"});
+});
+
+
+
+
+
+//下面分享下拉菜单 
+$(".slideDown_sub").hover(function(){
+		$(this).addClass("slideCur_sub");
+		$(this).stop().animate({height:"440px"},"slow");
+		$(this).find(".selectBox_sub").show();
+	},function(){
+		$(this).stop().css({height:"43px"});
+		$(this).find(".selectBox_sub").hide();
+		$(this).removeClass("slideCur_sub")
+	
+});
+$(".slideDown_sub .selectBox_sub a.ico01").mouseenter(function(){
+		$(this).css({backgroundPosition:"-37px -1px",paddingLeft:"120px"});
+		$(this).animate({backgroundPosition:"12px -1px",paddingLeft:"45px"},"normal");
+	});
+$(".slideDown_sub .selectBox_sub a.ico01").mouseleave(function(){
+		$(this).stop().css({backgroundPosition:"12px -1px",paddingLeft:"45px"});
+});
+$(".slideDown_sub .selectBox_sub a.ico02").mouseenter(function(){
+		$(this).css({backgroundPosition:"-37px -39px",paddingLeft:"120px"});
+		$(this).animate({backgroundPosition:"12px -39px",paddingLeft:"45px"},"normal");
+	});
+$(".slideDown_sub .selectBox_sub a.ico02").mouseleave(function(){
+		$(this).stop().css({backgroundPosition:"12px -39px",paddingLeft:"45px"});
+});
+$(".slideDown_sub .selectBox_sub a.ico03").mouseenter(function(){
+		$(this).css({backgroundPosition:"-37px -79px",paddingLeft:"120px"});
+		$(this).animate({backgroundPosition:"12px -79px",paddingLeft:"45px"},"normal");
+	});
+$(".slideDown_sub .selectBox_sub a.ico03").mouseleave(function(){
+		$(this).stop().css({backgroundPosition:"12px -79px",paddingLeft:"45px"});
+});
+$(".slideDown_sub .selectBox_sub a.ico04").mouseenter(function(){
+		$(this).css({backgroundPosition:"-37px -119px",paddingLeft:"120px"});
+		$(this).animate({backgroundPosition:"12px -119px",paddingLeft:"45px"},"normal");
+	});
+$(".slideDown_sub .selectBox_sub a.ico04").mouseleave(function(){
+		$(this).stop().css({backgroundPosition:"12px -119px",paddingLeft:"45px"});
+});
+$(".slideDown_sub .selectBox_sub a.ico05").mouseenter(function(){
+		$(this).css({backgroundPosition:"-37px -159px",paddingLeft:"120px"});
+		$(this).animate({backgroundPosition:"12px -159px",paddingLeft:"45px"},"normal");
+	});
+$(".slideDown_sub .selectBox_sub a.ico05").mouseleave(function(){
+		$(this).stop().css({backgroundPosition:"12px -159px",paddingLeft:"45px"});
+});
+$(".slideDown_sub .selectBox_sub a.ico06").mouseenter(function(){
+		$(this).css({backgroundPosition:"-37px 6px",paddingLeft:"120px"});
+		$(this).animate({backgroundPosition:"12px 6px",paddingLeft:"45px"},"normal");
+	});
+$(".slideDown_sub .selectBox_sub a.ico06").mouseleave(function(){
+		$(this).stop().css({backgroundPosition:"12px 6px",paddingLeft:"45px"});
+});
+$(".slideDown_sub .selectBox_sub a.ico07").mouseenter(function(){
+		$(this).css({backgroundPosition:"-37px -34px",paddingLeft:"120px"});
+		$(this).animate({backgroundPosition:"12px -34px",paddingLeft:"45px"},"normal");
+	});
+$(".slideDown_sub .selectBox_sub a.ico07").mouseleave(function(){
+		$(this).stop().css({backgroundPosition:"12px -34px",paddingLeft:"45px"});
+});
+$(".slideDown_sub .selectBox_sub a.ico08").mouseenter(function(){
+		$(this).css({backgroundPosition:"-37px -74px",paddingLeft:"120px"});
+		$(this).animate({backgroundPosition:"12px -74px",paddingLeft:"45px"},"normal");
+	});
+$(".slideDown_sub .selectBox_sub a.ico08").mouseleave(function(){
+		$(this).stop().css({backgroundPosition:"12px -74px",paddingLeft:"45px"});
+});
+$(".slideDown_sub .selectBox_sub a.ico09").mouseenter(function(){
+		$(this).css({backgroundPosition:"-37px -114px",paddingLeft:"120px"});
+		$(this).animate({backgroundPosition:"12px -114px",paddingLeft:"45px"},"normal");
+	});
+$(".slideDown_sub .selectBox_sub a.ico09").mouseleave(function(){
+		$(this).stop().css({backgroundPosition:"12px -114px",paddingLeft:"45px"});
+});
+$(".slideDown_sub .selectBox_sub a.ico10").mouseenter(function(){
+		$(this).css({backgroundPosition:"-37px -155px",paddingLeft:"120px"});
+		$(this).animate({backgroundPosition:"12px -155px",paddingLeft:"45px"},"normal");
+	});
+$(".slideDown_sub .selectBox_sub a.ico10").mouseleave(function(){
+		$(this).stop().css({backgroundPosition:"12px -155px",paddingLeft:"45px"});
+});
+})

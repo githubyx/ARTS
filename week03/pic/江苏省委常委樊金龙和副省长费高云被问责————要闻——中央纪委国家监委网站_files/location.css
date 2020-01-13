@@ -1,0 +1,6 @@
+/*****概览页面当前位置和全文检索 begin*****/
+.other_Location { margin: auto; margin: 0px 50px 0px 50px; height: 30px;  }
+.other_Location .fl { margin: auto; background: url(icon_posi.png) no-repeat left center; font-size: 18px; color: #373737; height: 30px;  }
+.other_Location .fl span { color:#373737; line-height: 30px; margin-left: 35px;}
+.other_Location .fl span a { color: #373737;}
+ 

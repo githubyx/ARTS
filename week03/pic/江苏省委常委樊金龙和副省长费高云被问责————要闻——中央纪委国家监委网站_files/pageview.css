@@ -1,0 +1,23 @@
+
+/*分页*/
+.page { vertical-align: middle; text-align: center; font-size: 14px; color: #171717; height:25px; line-height:25px; margin-top: 20px;}
+.page input {vertical-align:middle;}
+.page span{ margin-right:5px;}
+.page .e{ position:relative; top:1px; *top:0px; margin-left: 5px;}
+.page a { vertical-align:middle; display:inline-block; *display:inline; zoom:1; margin:0 3px; min-width: 25px; height:25px; line-height:25px;text-align:center; color: #171717; font-family:Arial, Helvetica, sans-serif; }
+.page a:hover,.page a.on{ min-width:25px; height:25px; line-height:25px; text-align:center; background: #16327c; color: #ffffff; }
+.page a.prev { width: 15px; height: 12px; background: url(page_pre_grey.png) no-repeat center center; margin:0px 5px; }
+.page a.next { width: 15px; height: 12px; background: url(page_next_grey.png) no-repeat center center; margin:0px 5px; }
+
+.page a.prev:hover { width: 15px; height: 12px; background: url(page_pre.png) no-repeat center center; margin:0px 5px; }
+.page a.next:hover{ width: 15px; height: 12px; background: url(page_next.png) no-repeat center center; margin:0px 5px; }
+
+.page a.go { width: 26px; height:25px; border: 0px; background:url(go.png) no-repeat; margin: 0px 5px; cursor:pointer;}
+.page a.go:hover { width: 26px; height:25px; border: 0px; background:url(go_on.png) no-repeat; margin: 0px 5px; cursor:pointer;}
+
+.txtnum{ display:inline-block;*display:inline;zoom:1; width: 42px; height: 25px;line-height:25px; background:#fff; border:1px solid #d2d2d2; margin:0px 2px;vertical-align:middle; margin-left: 10px;}
+.txtnum input { width: 42px; height:25px; line-height:25px; position:relative; top:-1px; text-align:center;color:#676766; font-family:Arial, Helvetica, sans-serif; font-size:12px; background:none; border:none;}
+.page .cor01{ color:#676766; position:relative; top:1px; *top:0px; margin-left: 10px;}
+   
+.page a.first{width:60px; margin:0px 5px; font-family:"\5b8b\4f53"; height:25px; line-height:25px;text-align:center; color:#171717; white-space: nowrap; }
+.page a.first:hover{ width:60px; margin:0px 5px; font-family:"\5b8b\4f53";height:25px; line-height:25px;text-align:center; background: #16327c; color: #ffffff;white-space: nowrap;}
