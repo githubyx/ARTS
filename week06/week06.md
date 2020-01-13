@@ -388,12 +388,8 @@ linux 学习记录
     Vi有三种模式：
 
      - 普通模式
-
      - 插入模式
-
      - 命令行模式
-
-       ![img](.\pic\vim-vi-workmodel.png)
 
     **1. 普通模式**
 
