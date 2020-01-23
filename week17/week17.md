@@ -1,252 +1,199 @@
-## week 16(date:20191230-20200105)
+
+
+## week 17(date:20190106-20200112)
 
 ### Algorithm
 
 ##### leetcode 中级算法-篇
 
-1. **中序遍历二叉树**：
+1. **填充每个节点的下一个右侧节点指针**：
 
    题目描述:
    
-   给定一个二叉树，返回它的*中序* 遍历。
-   
-   **示例:**
+   给定一个**完美二叉树**，其所有叶子节点都在同一层，每个父节点都有两个子节点。二叉树定义如下：
    
    ```
-   输入: [1,null,2,3]
-      1
-       \
-        2
-       /
-      3
-   
-   输出: [1,3,2]
+   struct Node {
+     int val;
+     Node *left;
+     Node *right;
+     Node *next;
+   }
    ```
    
-   思路:使用递归，先遍历左子树，再取当前节点的值，最后遍历右子树，递归退出条件为当前节点是否为空。
+   填充它的每个 next 指针，让这个指针指向其下一个右侧节点。如果找不到下一个右侧节点，则将 next 指针设置为 `NULL`。
+   
+   初始状态下，所有 next 指针都被设置为 `NULL`。
+   
+   思路:使用递归，确定递归子问题，是三个节点的时候，为左右节点设置next，分析可知，左节点的next为右节点。右节点的next为null或者为头结点的next的left节点。递归退出条件为当前节点的left或right为null。
 
 ```java
 class Solution {
-    public List<Integer> inorderTraversal(TreeNode root) {
-        List<Integer> res=new ArrayList<Integer>();
-        inorderTraversalHelper(root,res);
-        return res;
-        
+    public Node connect(Node root) {
+        if(root==null){
+            return root;
+        }
+        root.next=null;
+        connnectHelper(root);
+        return root;
     }
-    public void inorderTraversalHelper(TreeNode root,List<Integer> res){
-        if(root!=null){
-            inorderTraversalHelper(root.left,res);
-            res.add(root.val);
-            //System.out.println(root.val);       
-            inorderTraversalHelper(root.right,res);
-        }{
+        
+    public void connnectHelper(Node node){
+        
+        Node lnode=node.left;
+        Node rnode=node.right;
+        if(lnode!=null){
+            lnode.next=rnode;
+            if(node.next==null){
+                rnode.next=null;
+            }else{
+                rnode.next=node.next.left;
+            } 
+            connnectHelper(lnode);
+            connnectHelper(rnode);
+        }else{
             return;
         }
-        
-    }
+        成       ·	1 安琪·  }
 }
 ```
 
 ### Review
 
-### Spring Boot Guides
+### Activiti User Guide
 
-##### Building Java Projects with Gradle：https://spring.io/guides/gs/gradle/
+##### Activiti User Guide：https://www.activiti.org/5.x/userguide/
+
+end（ 3.3. Database configuration）	
 
 ##### 单词:
 
-1. elementary  基本的
+1. distributed 发布
 
-2. occasionally 偶尔
+2. distribution 发行版
 
-3. effort 结果
+3. Experimental  实验性的
 
-4. dependencies 依赖性
+4. stable 稳定的
 
-5. indicates  表明
+5. individually 个别的
 
-6. block  块
+6. Alternatively 或者
 
-7.  indicates 约定
+7. concepts 概念
 
-8. facilities established 设施的建立
+8. functionality 功能
 
-9. notable  显著的
+9. obtain  获得
 
-10. render  渲染
+10.  form  形成
 
-11.  bundled 捆绑
+11. getting insight on  深入
 
-12.  quite handy 完全够用的
+12. in fact  事实上
 
-    文章介绍了如何使用gradle构建java应用，gradle使用maven的仓库和一些依赖，使用**Gradle Wrapper**构建是首选，因为该脚本支持跨平台，而且无需再系统上安装gradle，每个使用该项目的人都可以以相同的方式构建项目。下面是完整的`build.gradle`文件：
+13. leveraging  利用
 
-    ```gradle
-    apply plugin: 'java'
-    apply plugin: 'eclipse'
-    apply plugin: 'application'
+14. practice  实践
+
+15. transactions  处理
+
+    介绍了如何安装activiti，下载activiti-explorer.war复制到Tomcat的webapps目录中。启动tomacat，
+
+    打开浏览器登录http://localhost:8080/activiti-explorer，默认为h2数据库。配置文件**activiti.cfg.xml**的数据库配置等。
+
     
-    mainClassName = 'hello.HelloWorld'
-    
-    // tag::repositories[]
-    repositories {
-        mavenCentral()
-    }
-    // end::repositories[]
-    
-    // tag::jar[]
-    jar {
-        baseName = 'gs-gradle'
-        version =  '0.1.0'
-    }
-    // end::jar[]
-    
-    // tag::dependencies[]
-    sourceCompatibility = 1.8
-    targetCompatibility = 1.8
-    
-    dependencies {
-        compile "joda-time:joda-time:2.2"
-        testCompile "junit:junit:4.12"
-    }
-    // end::dependencies[]
-    
-    // tag::wrapper[]
-    // end::wrapper[]
-    ```
 
 ### Tips
 
-- **Crontab模式** 日期序列生成器 。该模式是六个以空格分隔的字段的列表：代表秒，分钟，小时，天，月，周日。例子
+- 
   
-  - "0 0 * * * *" = 每天的每小时
-  - "*/10 * * * * *" = 每十秒
-  - "0 0 8-10 * * *" =每天的8-10点
-  - "0 0 6,19 * * *" = 每天的6点、19点
-  - "0 0/30 8-10 * * *" = 每天的8:00、8:30、9:00、9:30、10:00、10:30
-  - "0 0 9-17 * * MON-FRI" = 周一到周五的9点到17点
-  
-- mybatis 
-  
-  - 字符串的判断需要使用方法 
-  
-    ```bash
-    <if test="sex=='Y'.toString()"></if>
-    <if test = 'sex== "Y"'></if>
-    不能使用：
-    <if test="sex=='Y'"> </if>
-    ```
 
 ### Share
 
-#### spring框架学习笔记
+#### spring框架学习笔记二
 
-#### 	一、什么是spring
+#### 	一、spring 的自动扫描与自动装配
 
-​		Spring 是一个开源的轻量级 Java SE（ Java 标准版本）/Java EE（ Java 企业版本）开发应用框架，其目的是用于简化企业级应用程序开发。在传统应用程序开发中，一个完整的应用是由一组相互协作的对象组成的。所以开发一个应用除了要开发业务逻辑之外，最多的是关注使这些对象协作来完成所需功能的同时，实现低耦合、高内聚。Spring 框架可以帮我们来创建对象及管理这些对象之间的依赖关系，能通过配置方式来创建对象，**管理对象之间依赖关系**。
+​		通常你可以在 xml 配置文件中，声明一个 bean 或者 component ，然后 Spring 容器会检查和注册你的 bean 或 component 。Spring 支持自动扫描 bean 或 component ，你可以不必再在 xml 文件中繁琐的声明 bean ，Spring 会自动扫描、检查你指定包的 bean 或 component 。
 
-​		Spring 框架除了帮我们管理对象及其依赖关系，还提供像通用日志记录、性能统计、安全控制、异常处理等**面向切面**的能力，可以帮我们管理最头疼的**数据库事务**，同时，它本身提供了一套简单的 JDBC 访问实现，能与第三方数据库访问框架集成（如 Hibernate、JPA ），与各种 Java EE 技术整合（如 Java Mail、任务调度等等），提供一套自己的 web 层框架 Spring MVC 、而且还能非常简单的与第三方 web 框架集成。从这里我们可以认为 Spring 是一个超级粘合平台，除了自己提供功能外，还提供粘合其他技术和框架的能力，从而使我们可以更自由的选择到底使用什么技术进行开发。
+```java
+package com.shiyanlou.spring.services;
 
-##### 二、spring的作用
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
 
-	1. Spring 能帮我们根据配置文件创建及组装对象之间的依赖关系。
- 	2. Spring 面向切面编程能帮助我们无耦合的实现日志记录、性能统计、安全控制。
- 	3. Spring 能非常简单的帮我们管理数据库事务。
+import com.shiyanlou.spring.dao.CustomerDAO;
 
-##### 三、spring的Ioc
+@Component
+public class CustomerService 
+{
+    @Autowired
+    CustomerDAO customerDAO;
 
-​    Ioc—Inversion of Control，即“控制反转”，它不是什么技术，而是一种设计思想。在 Java 开发中， Ioc 意味着将你设计好的对象交给容器控制，而不是传统的在你的对象内部直接控制。**传统 Java SE 程序设计，我们直接在对象内部通过 new 进行创建对象，是程序主动去创建依赖对象；而 IoC 是有专门一个容器来创建这些对象，即由 IoC 容器来控制对象的创建；主要控制了外部资源获取（不只是对象包括比如文件等）。**
+    @Override
+    public String toString() {
+        return "CustomerService [customerDAO=" + customerDAO + "]";
+    }
+}
+```
 
-​	DI—Dependency Injection，即“依赖注入”：是组件之间依赖关系由容器在运行期决定，形象的说，**即由容器动态的将某个依赖关系注入到组件之中。**
+```xml
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="
+            http://www.springframework.org/schema/context
+            http://www.springframework.org/schema/context/spring-context.xsd
+            http://www.springframework.org/schema/beans 
+            http://www.springframework.org/schema/beans/spring-beans.xsd">
 
-传统模式:
+    <context:component-scan base-package="com.shiyanlou.spring"/>
 
-![1578233664735](assets/1578233664735.png)
+</beans>
+```
 
-有了IOC/DI容器之后:
+##### 自动扫描组件的注释类型
 
-![1578233647523](assets/1578233647523.png)
+有 4 种注释类型，分别是：
 
-Spring IoC 容器如何知道哪些是它管理的对象呢？
+1. @Component ——表示一个自动扫描 component
+2. @Repository ——表示持久化层的 DAO component
+3. @Service ——表示业务逻辑层的 Service component
+4. @Controller ——表示表示层的 Controller component
 
-这就需要配置文件，Spring IoC 容器通过读取配置文件中的配置元数据，通过元数据对应用中的各个对象进行实例化及装配。一般使用基于 xml 配置文件进行配置元数据，而且 Spring 与配置文件完全解耦的，可以使用其他任何可能的方式进行配置元数据，比如注解、基于 java 文件的、基于属性文件的配置都可以。
+##### 自动装配bean
 
-在 Spring Ioc 容器的代表就是 org.springframework.beans 包中的 **BeanFactory** 接口， BeanFactory 接口提供了 IoC 容器最基本功能；而 org.springframework.context 包下的 **ApplicationContext** 接口扩展了 BeanFactory ，还提供了与Spring AOP 集成、国际化处理、事件传播及提供不同层次的 context 实现 (如针对 web 应用的 WebApplicationContext )。简单说， BeanFactory 提供了 IoC 容器最基本功能，而 ApplicationContext 则增加了更多支持企业级功能支持。 
+Spring 支持 5 种自动装配模式，如下：
 
-##### 四、spring中bean的定义
+- no —— 默认情况下，不自动装配，通过 `ref` attribute 手动设定。
+- byName —— 根据 Property 的 Name 自动装配，如果一个 bean 的 name ，和另一个 bean 中的 Property 的 name 相同，则自动装配这个 bean 到 Property 中。
+- byType —— 根据 Property 的数据类型（ Type ）自动装配，如果一个 bean 的数据类型，兼容另一个 bean 中 Property 的数据类型，则自动装配。
+- constructor —— 根据构造函数参数的数据类型，进行 byType 模式的自动装配。
+- autodetect —— 如果发现默认的构造函数，用 constructor 模式，否则，用 byType 模式。
 
-1. ##### 基于xml
+##### 二、spring基于注解的配置
 
-   ```xml
-   <bean id="FileNameGenerator" class="com.shiyanlou.spring.bean.FileNameGenerator">
-           <property name="name">
-               <value>shiyanlou</value>
-           </property>
-           <property name="type">
-               <value>txt</value>
-           </property>
-       </bean><?xml version="1.0" encoding="UTF-8"?>
-   <beans xmlns="http://www.springframework.org/schema/beans"
-          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-          xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
-       <!--一般方法-->
-       <bean id="FileNameGenerator" class="com.shiyanlou.spring.bean.FileNameGenerator">
-           <property name="name">
-               <value>shiyanlou</value>
-           </property>
-           <property name="type">
-               <value>txt</value>
-           </property>
-       </bean>
-       <!-- 另一重配置方法 缩写方法-->
-       <!-- 
-           <bean id="FileNameGenerator" class="com.shiyanlou.spring.bean.FileNameGenerator">
-                  <property name="name" value="shiyanlou" />
-                  <property name="type" value="txt" />
-              </bean>
-        -->
-   </beans>
-   ```
+  		1. **@Autowired** 可以用来装配 bean，可以写在字段上，或者方法上。@Autowired 默认按类型装配，默认情况下要求依赖对象必须存在，如果要允许 null 值，可以设置它的 required 属性为 false。
+                		2. **@Qualifier**这个注解通常和@Autowired 一起使用，当你想对注入的过程做更多的控制，@Qualifier 可以帮助你指定做更详细配置。一般在两个或者多个 bean 是相同的类型，spring 在注入的时候会出现混乱
+            		3. **基于java的配置：**Spring 中为了减少 XML 配置，可以声明一个配置类类对 bean 进行配置，主要用到两个注解@Configuration 和@bean
 
-   
+##### 三、spring框架的AOP
 
-2. ##### 基于注解
+ Spring **AOP** 即 Aspect-oriented programming，面向切面编程，是作为**面向对象编程**的一种**补充**，专门用于处理系统中分布于各个模块（不同方法）中的**交叉关注点**的问题。简单地说，就是一个**拦截器**（ interceptor ）拦截一些处理过程。
 
-   注解是为 Spring 容器提供 Bean 定义的信息，把 XML 定义的信息通过类注解描述出来。众所周知，Spring容器三大要素：Bean 定义、 Bean 实现类以及 Spring 框架。如果采用 XML 配置，Bean 定义和 Bean 实现类本身分离，而采用注解配置，Bean 定义在 Bean 实现类上注解就可以实现。
+例如，当一 个 method 被执行，Spring AOP 能够劫持正在运行的 method ，在 method 执行前或者后加入一些额外的功能。
 
-   - **@Component** 
-   - **@Autowired** 可以用来装配 bean，都可以写在字段上，或者方法上。
-   - 除此之外，Spring 有三个与 @Component 等效的注解：
-     1. @Controller:对应表现层的 Bean，也就是 Action 。
-     2. @Service:对应的是业务层 Bean 。
-     3. @Repository:对应数据访问层 Bean 。
+在 Spring AOP 中，支持 4 种类型的通知（ Advice ）：
 
-3. ##### 基于Java类
+- **Before advice** - method 执行前通知
+- **After returning advice** - method 返回一个结果后通知
+- **After throwing advice** - method 抛出异常后通知
+- **Around advice** - 环绕通知，结合了以上三种
 
-##### 五、bean 的作用域与生命周期：
+在 Spring AOP 中，有 3 个常用的概念，Advices 、 Pointcut 、 Advisor ，解释如下：
 
-在 Spring 中，Bean 的作用域决定了从 Spring 容器中返回的 Bean 实例的类型。在 Spring 中，支持以下 5 种类型的作用域：
-
-1. **singleton — 单例模式，由 IOC 容器返回一个唯一的 bean 实例。**
-2. **prototype — 原型模式，被请求时，每次返回一个新的 bean 实例。**
-3. request — 每个 HTTP Request 请求返回一个唯一的 Bean 实例。
-4. session — 每个 HTTP Session 返回一个唯一的 Bean 实例。
-5. globalSession — Http Session 全局 Bean 实例。
-
-Spring框架中，一旦把一个Bean纳入Spring IOC容器之中，这个Bean的生命周期就会交由容器进行管理，一般担当管理角色的是BeanFactory或者ApplicationContext,认识一下Bean的生命周期活动，对更好的利用它有很大的帮助：
-
-下面以BeanFactory为例，说明一个Bean的生命周期活动
-
-- Bean的建立， 由BeanFactory读取Bean定义文件，并生成各个实例
-- Setter注入，执行Bean的属性依赖注入
-- BeanNameAware的setBeanName(), 如果实现该接口，则执行其setBeanName方法
-- BeanFactoryAware的setBeanFactory()，如果实现该接口，则执行其setBeanFactory方法
-- BeanPostProcessor的processBeforeInitialization()，如果有关联的processor，则在Bean初始化之前都会执行这个实例的processBeforeInitialization()方法
-- InitializingBean的afterPropertiesSet()，如果实现了该接口，则执行其afterPropertiesSet()方法
-- Bean定义文件中定义init-method
-- BeanPostProcessors的processAfterInitialization()，如果有关联的processor，则在Bean初始化之前都会执行这个实例的processAfterInitialization()方法
-- DisposableBean的destroy()，在容器关闭时，如果Bean类实现了该接口，则执行它的destroy()方法 -Bean定义文件中定义destroy-method，在容器关闭时，可以在Bean定义文件中使用“destory-method”定义的方法
-
-如果使用**ApplicationContext**来维护一个Bean的生命周期，则基本上与上边的流程相同，只不过在执行BeanNameAware的setBeanName()后，若有Bean类实现了org.springframework.context.ApplicationContextAware接口，则执行其**setApplicationContext**()方法，然后再进行BeanPostProcessors的**processBeforeInitialization**() 实际上，ApplicationContext除了向BeanFactory那样维护容器外，还提供了更加丰富的框架功能，如Bean的消息，事件处理机制等。
-
-![Spring Bean 生命周期](assets/wm-1578235267425.png)
+- **Advices** ：表示一个 method 执行前或执行后的动作。
+- **Pointcut** ：表示根据 method 的名字或者正则表达式去拦截一个 method 。
+- **Advisor** ： Advice 和 Pointcut 组成的独立的单元，并且能够传给 proxy factory 对象。
